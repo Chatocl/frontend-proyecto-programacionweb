@@ -4,6 +4,8 @@ import { useState } from 'react';
 import UploadIcon from '@mui/icons-material/Upload';
 import { SiSpotify } from 'react-icons/si';
 
+import { apiFetch } from "../services/api"; 
+
 function Home() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [emotion, setEmotion] = useState('');
@@ -46,11 +48,16 @@ function Home() {
       setEmotion(emocionPrincipal);
       console.log('Emoción principal:', emocionPrincipal);
 
-      const recoResponse = await fetch(`${API_BASE}/recommendations/emotion`, {
+      /*const recoResponse = await fetch(`${API_BASE}/recommendations/emotion`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ emotion: emocionPrincipal }),
-      });
+      });*/
+
+      const recoResponse = await apiFetch("/recommendations/emotion", {
+    method: "POST",
+    body: JSON.stringify({ emotion: emocionPrincipal })
+  });
 
       if (!recoResponse.ok) throw new Error('Error al obtener recomendaciones');
 
