@@ -87,4 +87,3 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
   }
   
   export default History;
-  
