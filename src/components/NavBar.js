@@ -8,6 +8,15 @@ function Navbar() {
   // No mostrar Navbar en login o signup
   if (location.pathname === '/' || location.pathname === '/signup') return null;
 
+    // Handler de logout
+  const handleLogout = () => {
+    // 1) Elimina el token
+    localStorage.removeItem('token');
+    // 2) Redirige al Login (y reemplaza el historial)
+    navigate('/', { replace: true });
+
+     };
+
   return (
     <AppBar position="static" sx={{ mb: 4 }}>
       <Toolbar>
@@ -22,7 +31,7 @@ function Navbar() {
           <Button color="inherit" onClick={() => navigate('/history')}>
             Historial
           </Button>
-          <Button color="inherit" onClick={() => navigate('/')}>
+          <Button color="inherit" onClick={handleLogout}>
             Logout
           </Button>
         </Box>
