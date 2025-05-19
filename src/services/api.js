@@ -11,7 +11,7 @@ export async function apiFetch(endpoint, options = {}) {
     ...(token ? { 'Authorization': `Bearer ${token}` } : {})
   };
 
-  // 3) Lanza el fetch hacia tu backend
+  // 3) Lanza el fetch hacia el backend
   const res = await fetch(`${API_BASE}${endpoint}`, {
     ...options,
     headers
