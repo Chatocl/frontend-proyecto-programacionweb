@@ -1,7 +1,7 @@
 // src/pages/History.js
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Card, CardContent, IconButton } from '@mui/material';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { SiSpotify } from 'react-icons/si';
 import { apiFetch } from '../services/api';  // tu helper que inyecta el JWT
 
 // Función auxiliar para formatear fechas
@@ -107,7 +107,7 @@ export default function History() {
                   rel="noopener noreferrer"
                   sx={{ color: '#1DB954', mr: 1 }}
                 >
-                  <PlayArrowIcon />
+                  <SiSpotify />
                 </IconButton>
               </Card>
             ))}
